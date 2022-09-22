@@ -17,9 +17,8 @@ public class SinglyLinkedList {
 
 	}
 
-	public void print(ListNode current) {
-		
-
+	public void print() {
+		ListNode current = head;
 		while (current != null) {
 			System.out.print(current.data + "--->");
 			current = current.next;
@@ -27,14 +26,18 @@ public class SinglyLinkedList {
 		}
 		System.out.println("null");
 	}
-	
-	public int length(ListNode current) {
-		
+
+	public int length() {
+
 		int count = 0;
-		
+		if (head == null) {
+			return 0;
+		}
+		ListNode current = head;
+
 		while (current != null) {
-		
-			count ++;
+
+			count++;
 			current = current.next;
 
 		}
@@ -42,9 +45,10 @@ public class SinglyLinkedList {
 	}
 
 	public static void main(String[] args) {
-		
+
 		SinglyLinkedList sll = new SinglyLinkedList();
-		//if the outer class is not static then SinglyLinkedList.ListNode listnode_first = sll.new ListNode(10);
+		// if the outer class is not static then 
+		// SinglyLinkedList.ListNode listnode_first = sll.new ListNode(10);
 		ListNode listnode_first = new ListNode(10);
 		ListNode listnode_second = new ListNode(20);
 		ListNode listnode_third = new ListNode(30);
@@ -54,10 +58,10 @@ public class SinglyLinkedList {
 		listnode_first.next = listnode_second;
 		listnode_second.next = listnode_third;
 		listnode_third.next = listnode_fourth;
-		
-        sll.print(head);
-       int count =  sll.length(head);
-       System.out.println(count);
+
+		sll.print();
+		int count = sll.length();
+		System.out.println(count);
 	}
 
 }
